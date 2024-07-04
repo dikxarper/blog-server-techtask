@@ -3,15 +3,16 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config({path: '.env'});
 const PORT = process.env.PORT;
-const http = require('http');
 
 app.use(express.json())
 
-const apiRouter = require('./routes/api');
-app.use('/api/blog', apiRouter);
 app.use('/', (req, res) => {
     res.send('Server is running');
 })
+
+const apiRouter = require('./routes/api');
+app.use('/api/blog', apiRouter);
+
 
 const connectDB = async() => {
     try {
@@ -30,7 +31,7 @@ const connectDB = async() => {
 
 connectDB();
 
-app.listen(PORT, async function() {
+app.listen(PORT, function() {
     console.log(`Server started in ${PORT} port`);
 });
 
