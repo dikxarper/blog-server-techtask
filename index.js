@@ -6,10 +6,6 @@ const PORT = process.env.PORT;
 
 app.use(express.json())
 
-app.use('/', (req, res) => {
-    res.send('Server is running');
-})
-
 const apiRouter = require('./routes/api');
 app.use('/api/blog', apiRouter);
 

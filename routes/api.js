@@ -9,7 +9,6 @@ router.get('/', async(req, res) => {
             return res.status(404).json({message: "Blogs not found"});
         }
         res.status(200).json(blogs);
-        res.send(blogs);
     } catch (error) {
         console.error('Error retrieving blogs', error);
     }
